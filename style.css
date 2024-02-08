@@ -48,7 +48,7 @@ button {
 }
 
 .game__items {
-    max-width: 890px;
+    max-width: 936px;
     max-height: 168px;
     display: flex;
     flex-wrap: wrap;
@@ -68,6 +68,10 @@ button {
     padding: 16px;
     text-align: center;
     box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: background var(--transition-speed), transform var(--transition-speed);
     user-select: none;
     position: relative;
@@ -81,7 +85,13 @@ button {
 .game__item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+}
+
+.game__item-caption {
+    margin-top: 4px;
+    font-size: 12px;
+    width: 100%;
 }
 
 .game__mixing-zone {
@@ -219,12 +229,15 @@ button {
     transition: width var(--transition-speed);
 }
 
-@media (max-width: 768px) {
-    .game__items {
-        flex-direction: column;
-        align-items: center;
-    }
+.show {
+    display: block;
+}
 
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
     .game__element {
         margin-bottom: 10px;
     }
@@ -238,10 +251,12 @@ button {
     }
 }
 
-.show {
-    display: block;
-}
-
-.hidden {
-    display: none;
+@media (max-width: 375px) {
+    .game__items {
+        max-height: 270px;
+    }
+    .game__mixing-area {
+        width: 110px;
+        height: 110px;
+    }
 }

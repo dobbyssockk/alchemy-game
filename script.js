@@ -46,6 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             gameItemEl.append(gameItemImg);
 
+            const gameItemCaption = document.createElement('div');
+            gameItemCaption.classList.add('game__item-caption');
+            gameItemCaption.textContent = `${item.name[0].toUpperCase()}${item.name.slice(1)}`;
+
+            gameItemEl.append(gameItemCaption);
+
             gameItemsContainerEl.append(gameItemEl);
         })
 
@@ -66,9 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (itemEl.querySelector('img').alt === gameItem.alt) {
                         selectedItems.push(gameItem);
                         if (selectedItems.length === 1) {
-                            mixingAreaEl[0].innerHTML = itemEl.innerHTML;
+                            const mixingImgEl = document.createElement('img');
+                            mixingImgEl.src = gameItem.src;
+                            mixingImgEl.alt = gameItem.alt;
+
+                            mixingAreaEl[0].append(mixingImgEl);
                         } else {
-                            mixingAreaEl[1].innerHTML = itemEl.innerHTML;
+                            const mixingImgEl = document.createElement('img');
+                            mixingImgEl.src = gameItem.src;
+                            mixingImgEl.alt = gameItem.alt;
+
+                            mixingAreaEl[1].append(mixingImgEl);
                             mixingElements(selectedItems[0], selectedItems[1]);
                         }
                     }
@@ -399,23 +413,23 @@ document.addEventListener('DOMContentLoaded', () => {
             item1: 'life',
             item2: 'forest',
             result: {
-                name: 'wild-animal',
+                name: 'beast',
                 title: 'Icon by Freepik - Flaticon',
-                src: 'icons/wild-animal.png',
-                alt: 'wild-animal',
+                src: 'icons/beast.png',
+                alt: 'beast',
                 srcOfMixedEl1: 'icons/life.png',
                 srcOfMixedEl2: 'icons/forest.png'
             }
         },
         {
-            item1: 'wild-animal',
+            item1: 'beast',
             item2: 'tree',
             result: {
                 name: 'monkey',
                 title: 'Icon by Freepik - Flaticon',
                 src: 'icons/monkey.png',
                 alt: 'monkey',
-                srcOfMixedEl1: 'icons/wild-animal.png',
+                srcOfMixedEl1: 'icons/beast.png',
                 srcOfMixedEl2: 'icons/tree.png'
             }
         },
@@ -444,26 +458,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         {
-            item1: 'wild-animal',
+            item1: 'beast',
             item2: 'farmer',
             result: {
-                name: 'domestic-animal',
+                name: 'livestock',
                 title: 'Icon by Eucalyp - Flaticon',
-                src: 'icons/domestic-animal.png',
-                alt: 'domestic-animal',
-                srcOfMixedEl1: 'icons/wild-animal.png',
+                src: 'icons/livestock.png',
+                alt: 'livestock',
+                srcOfMixedEl1: 'icons/beast.png',
                 srcOfMixedEl2: 'icons/farmer.png'
             }
         },
         {
-            item1: 'domestic-animal',
+            item1: 'livestock',
             item2: 'farmer',
             result: {
                 name: 'milk',
                 title: 'Icon by Freepik - Flaticon',
                 src: 'icons/milk.png',
                 alt: 'milk',
-                srcOfMixedEl1: 'icons/domestic-animal.png',
+                srcOfMixedEl1: 'icons/livestock.png',
                 srcOfMixedEl2: 'icons/farmer.png'
             }
         },
