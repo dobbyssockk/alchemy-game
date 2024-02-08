@@ -3,6 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const NUMBER_START_ELEMENTS = 4;
 
+    const clickSound = new Audio('click.mp3');
+
     const gameItems = [
         {
             name: 'water',
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 gameItems.forEach(gameItem => {
+                    clickSound.play();
                     if (itemEl.querySelector('img').alt === gameItem.alt) {
                         selectedItems.push(gameItem);
                         if (selectedItems.length === 1) {
