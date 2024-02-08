@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alchemy Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game">
+        <header class="header">
+            <h1>Alchemy Game</h1>
+        </header>
+
+        <main class="game__main">
+            <section class="game__items"></section>
+
+            <div class="game__mixing-zone">
+                <div class="game__mixing-area"></div>
+                <div class="game__mixing-symbol">+</div>
+                <div class="game__mixing-area"></div>
+            </div>
+
+            <aside class="side-panel">
+                <button id="recipe-book-button" class="recipe-book-button">Recipe book</button>
+                <div class="progress-bar"><div class="progress"></div></div>
+            </aside>
+
+            <div id="recipe-book" class="recipe-book hidden">
+                <h2>Recipe book</h2>
+
+                <div id="recipes-list"></div>
+
+                <button id="close-recipe-book">Close</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
