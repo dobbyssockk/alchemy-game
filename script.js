@@ -4,32 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Variable declarations and initialization
     const NUMBER_START_ELEMENTS = 4;
-    const gameItems = [
-        {
-            name: 'water',
-            title: 'Icon by Freepik - Flaticon',
-            src: 'icons/water.png',
-            alt: 'water'
-        },
-        {
-            name: 'fire',
-            title: 'Icon by Freepik - Flaticon',
-            src: 'icons/fire.png',
-            alt: 'fire'
-        },
-        {
-            name: 'earth',
-            title: 'Icon by Umeicon - Flaticon',
-            src: 'icons/earth.png',
-            alt: 'earth'
-        },
-        {
-            name: 'air',
-            title: 'Icon by torskaya - Flaticon',
-            src: 'icons/air.png',
-            alt: 'air'
-        },
-    ];
+
+    const gameItemsString = localStorage.getItem('gameItems');
+    let gameItems = [];
+    if (gameItemsString) {
+        gameItems = JSON.parse(gameItemsString);
+    } else {
+        gameItems = [
+            {
+                name: 'water',
+                title: 'Icon by Freepik - Flaticon',
+                src: 'icons/water.png',
+                alt: 'water'
+            },
+            {
+                name: 'fire',
+                title: 'Icon by Freepik - Flaticon',
+                src: 'icons/fire.png',
+                alt: 'fire'
+            },
+            {
+                name: 'earth',
+                title: 'Icon by Umeicon - Flaticon',
+                src: 'icons/earth.png',
+                alt: 'earth'
+            },
+            {
+                name: 'air',
+                title: 'Icon by torskaya - Flaticon',
+                src: 'icons/air.png',
+                alt: 'air'
+            },
+        ];
+    }
+
     const mixingCombinations = [
         {
             item1: 'water',
@@ -129,14 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             item1: 'energy',
-            item2: 'air',
+            item2: 'cloud',
             result: {
                 name: 'lightning',
                 title: 'Icon by Freepik - Flaticon',
                 src: 'icons/lightning.png',
                 alt: 'lightning',
                 srcOfMixedEl1: 'icons/energy.png',
-                srcOfMixedEl2: 'icons/air.png'
+                srcOfMixedEl2: 'icons/cloud.png'
             }
         },
         {
@@ -237,14 +245,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             item1: 'energy',
-            item2: 'cloud',
+            item2: 'air',
             result: {
                 name: 'storm',
                 title: 'Icon by max.icons - Flaticon',
                 src: 'icons/storm.png',
                 alt: 'storm',
                 srcOfMixedEl1: 'icons/energy.png',
-                srcOfMixedEl2: 'icons/cloud.png'
+                srcOfMixedEl2: 'icons/air.png'
             }
         },
         {
@@ -438,11 +446,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 srcOfMixedEl1: 'icons/sky.png',
                 srcOfMixedEl2: 'icons/cheese.png'
             }
-        }
+        },
+        {
+            item1: 'human',
+            item2: 'brick',
+            result: {
+                name: 'Builder',
+                title: 'Icon by Eucalyp - Flaticon',
+                src: 'icons/Builder.png',
+                alt: 'Builder',
+                srcOfMixedEl1: 'icons/human.png',
+                srcOfMixedEl2: 'icons/brick.png'
+            }
+        },
+        {
+            item1: 'builder',
+            item2: 'brick',
+            result: {
+                name: 'building',
+                title: 'Icon by Freepik - Flaticon',
+                src: 'icons/building.png',
+                alt: 'building',
+                srcOfMixedEl1: 'icons/builder.png',
+                srcOfMixedEl2: 'icons/brick.png'
+            }
+        },
     ];
     const numberOfUniqueEl = mixingCombinations.length;
     let selectedItems = [];
-    let createdItems = [];
     const clickSound = new Audio('click.mp3');
 
     // DOM events
@@ -465,14 +496,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Calculating game progress based on number of created items from all game items
     function calculateProgress() {
-        const progress = Math.ceil((createdItems.length / numberOfUniqueEl) * 100);
+        const progress = Math.ceil(((gameItems.length - NUMBER_START_ELEMENTS) / numberOfUniqueEl) * 100);
         progressEl.style.width = `${progress}%`;
     }
 
     // Add item to mixing area
     function addToMixingArea(areaIndex, gameItem) {
         const mixingImgEl = createItemImage(gameItem);
-        mixingAreaEl[areaIndex].textContent = ''; // Очищаем зону перед добавлением нового элемента
+        mixingAreaEl[areaIndex].textContent = ''; // Clearing the area before adding a new element
         mixingAreaEl[areaIndex].append(mixingImgEl);
     }
 
@@ -499,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event delegation for game item clicks
     gameItemsContainerEl.addEventListener('click', (event) => {
         const gameItemEl = event.target.closest('.game__item');
-        if (!gameItemEl) return; // Если клик не по элементу игры, выходим из обработчика
+        if (!gameItemEl) return; // If the click is not on a game element, exit the handler
 
         const gameItemName = gameItemEl.dataset.name;
         handleGameItemClick(gameItemName);
@@ -510,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Prevent adding more than two items
         if (selectedItems.length < 2) {
             const gameItem = gameItems.find(item => item.name === gameItemName);
-            if (!gameItem) return; // Если элемент не найден, выходим из обработчика
+            if (!gameItem) return; // If the element is not found, exit the handler
 
             clickSound.play();
             selectedItems.push(gameItem);
@@ -524,27 +555,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mixingElements(selectedItem1, selectedItem2) {
-        let isSuccessful = false;
-        mixingCombinations.forEach((mixingCombination) => {
-            if (
+        const mixingCombination = mixingCombinations.find((mixingCombination) => {
+            return (
                 (
                     (selectedItem1.name === mixingCombination.item1 && selectedItem2.name === mixingCombination.item2) ||
                     (selectedItem1.name === mixingCombination.item2 && selectedItem2.name === mixingCombination.item1)
                 ) &&
-                !createdItems.includes(mixingCombination.result.name)
-            ) {
-                successfulMixing(mixingCombination.result);
-                isSuccessful = true;
-                return;
-            }
+                !gameItems.find(item => item.name === mixingCombination.result.name)
+            );
         });
-        if (!isSuccessful) unsuccessfulMixing();
+        if (mixingCombination) {
+            successfulMixing(mixingCombination.result);
+        } else {
+            unsuccessfulMixing();
+        }
     }
 
     // Adding the new created item, clearing the mixing zone, calculating progress and rendering with the new item
     function successfulMixing(newItem) {
         gameItems.push(newItem);
-        createdItems.push(newItem.name);
+
+        localStorage.setItem('gameItems', JSON.stringify(gameItems));
+
         addRecipeToBook(newItem);
         clearMixingArea();
     }
@@ -586,18 +618,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Game initialization
     render();
+    calculateProgress();
 
     // Functions for event handlers
     // Toggle visibility of the recipe book
-    function toggleRecipeBook(){
+    function toggleRecipeBook() {
         recipeBookEl.classList.toggle('show');
         recipeBookEl.classList.toggle('hidden');
     }
 
     function resetGame() {
         gameItems.splice(NUMBER_START_ELEMENTS);
-        createdItems = [];
         recipesList.textContent = '';
+        localStorage.clear();
         clearMixingArea();
     }
 });
