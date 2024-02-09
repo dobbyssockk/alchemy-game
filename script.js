@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
             result: {
                 name: 'Builder',
                 title: 'Icon by Eucalyp - Flaticon',
-                src: 'icons/Builder.png',
+                src: 'icons/builder.png',
                 alt: 'Builder',
                 srcOfMixedEl1: 'icons/human.png',
                 srcOfMixedEl2: 'icons/brick.png'
