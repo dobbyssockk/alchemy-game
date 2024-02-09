@@ -1,10 +1,9 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Variable declarations and initialization
     const NUMBER_START_ELEMENTS = 4;
-
-    const clickSound = new Audio('click.mp3');
-
     const gameItems = [
         {
             name: 'water',
@@ -31,75 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alt: 'air'
         },
     ];
-
-    const gameItemsContainerEl = document.querySelector('.game__items');
-
-    function createItemImage(gameItem) {
-        const img = document.createElement('img');
-        img.src = gameItem.src;
-        img.alt = gameItem.alt;
-        return img;
-    }
-
-    function render() {
-        gameItemsContainerEl.textContent = '';
-
-        gameItems.forEach(item => {
-            const gameItemEl = document.createElement('div');
-            gameItemEl.classList.add('game__item');
-            gameItemEl.setAttribute('title', item.title);
-
-            const gameItemImg = createItemImage(item);
-
-            gameItemEl.append(gameItemImg);
-
-            const gameItemCaption = document.createElement('div');
-            gameItemCaption.classList.add('game__item-caption');
-            gameItemCaption.textContent = `${item.name[0].toUpperCase()}${item.name.slice(1)}`;
-
-            gameItemEl.append(gameItemCaption);
-
-            gameItemsContainerEl.append(gameItemEl);
-        })
-
-        const gameItemEl = document.querySelectorAll('.game__item');
-
-        gameItemEl.forEach(itemEl => {
-            itemEl.addEventListener('click', () => {
-                if (selectedItems.length === 2) {
-                    console.log('enough');
-                    return;
-                }
-                if (itemEl === selectedItems[0] || itemEl === selectedItems[1]) {
-                    console.log('exist');
-                    return;
-                }
-
-                gameItems.forEach(gameItem => {
-                    clickSound.play();
-                    if (itemEl.querySelector('img').alt === gameItem.alt) {
-                        selectedItems.push(gameItem);
-                        if (selectedItems.length === 1) {
-                            const mixingImgEl = createItemImage(gameItem);
-
-                            mixingAreaEl[0].append(mixingImgEl);
-                        } else {
-                            const mixingImgEl = createItemImage(gameItem);
-
-                            mixingAreaEl[1].append(mixingImgEl);
-                            mixingElements(selectedItems[0], selectedItems[1]);
-                        }
-                    }
-                })
-            })
-        })
-    }
-    render();
-
-    const mixingAreaEl = document.querySelectorAll('.game__mixing-area');
-
-    let selectedItems = [];
-
     const mixingCombinations = [
         {
             item1: 'water',
@@ -510,66 +440,135 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     ];
-
-    const NUMBER_UNIQUE_ELEMENTS = mixingCombinations.length;
-
+    const numberOfUniqueEl = mixingCombinations.length;
+    let selectedItems = [];
     let createdItems = [];
+    const clickSound = new Audio('click.mp3');
+
+    // DOM events
+    const gameItemsContainerEl = document.querySelector('.game__items');
+    const mixingAreaEl = document.querySelectorAll('.game__mixing-area');
+    const recipesList = document.getElementById('recipes-list');
+    const recipeBookButton = document.getElementById('recipe-book-button');
+    const recipeBookEl = document.getElementById('recipe-book');
+    const closeRecipeBook = document.getElementById('close-recipe-book');
+    const progressEl = document.querySelector('.progress');
+    const resetBtn = document.querySelector('.game__reset');
+
+    // Functions
+    function createItemImage(gameItem) {
+        const img = document.createElement('img');
+        img.src = gameItem.src;
+        img.alt = gameItem.alt;
+        return img;
+    }
+
+    // Calculating game progress based on number of created items from all game items
+    function calculateProgress() {
+        const progress = Math.ceil((createdItems.length / numberOfUniqueEl) * 100);
+        progressEl.style.width = `${progress}%`;
+    }
+
+    // Add item to mixing area
+    function addToMixingArea(areaIndex, gameItem) {
+        const mixingImgEl = createItemImage(gameItem);
+        mixingAreaEl[areaIndex].textContent = ''; // Очищаем зону перед добавлением нового элемента
+        mixingAreaEl[areaIndex].append(mixingImgEl);
+    }
+
+    function render() {
+        gameItemsContainerEl.textContent = '';
+        gameItems.forEach(gameItem => {
+            const gameItemEl = document.createElement('div');
+            gameItemEl.classList.add('game__item');
+            gameItemEl.setAttribute('title', gameItem.title);
+            gameItemEl.dataset.name = gameItem.name;
+
+            const gameItemImg = createItemImage(gameItem);
+            gameItemEl.append(gameItemImg);
+
+            const gameItemCaption = document.createElement('div');
+            gameItemCaption.classList.add('game__item-caption');
+            gameItemCaption.textContent = `${gameItem.name[0].toUpperCase()}${gameItem.name.slice(1).toLowerCase()}`;
+
+            gameItemEl.append(gameItemCaption);
+            gameItemsContainerEl.append(gameItemEl);
+        });
+    }
+
+    // Event delegation for game item clicks
+    gameItemsContainerEl.addEventListener('click', (event) => {
+        const gameItemEl = event.target.closest('.game__item');
+        if (!gameItemEl) return; // Если клик не по элементу игры, выходим из обработчика
+
+        const gameItemName = gameItemEl.dataset.name;
+        handleGameItemClick(gameItemName);
+    });
+
+    // Handle click on game item
+    function handleGameItemClick(gameItemName) {
+        // Prevent adding more than two items
+        if (selectedItems.length < 2) {
+            const gameItem = gameItems.find(item => item.name === gameItemName);
+            if (!gameItem) return; // Если элемент не найден, выходим из обработчика
+
+            clickSound.play();
+            selectedItems.push(gameItem);
+
+            // Add to mixing area and check for combination if two items are selected
+            addToMixingArea(selectedItems.length - 1, gameItem);
+            if (selectedItems.length === 2) {
+                mixingElements(selectedItems[0], selectedItems[1]);
+            }
+        }
+    }
 
     function mixingElements(selectedItem1, selectedItem2) {
         let isSuccessful = false;
-
         mixingCombinations.forEach((mixingCombination) => {
             if (
-                (selectedItem1.name === mixingCombination.item1 && selectedItem2.name === mixingCombination.item2) ||
-                (selectedItem1.name === mixingCombination.item2 && selectedItem2.name === mixingCombination.item1)
+                (
+                    (selectedItem1.name === mixingCombination.item1 && selectedItem2.name === mixingCombination.item2) ||
+                    (selectedItem1.name === mixingCombination.item2 && selectedItem2.name === mixingCombination.item1)
+                ) &&
+                !createdItems.includes(mixingCombination.result.name)
             ) {
                 successfulMixing(mixingCombination.result);
                 isSuccessful = true;
                 return;
             }
         });
-
-        if (!isSuccessful) {
-            unsuccessfulMixing();
-        }
+        if (!isSuccessful) unsuccessfulMixing();
     }
 
+    // Adding the new created item, clearing the mixing zone, calculating progress and rendering with the new item
     function successfulMixing(newItem) {
-        if (!createdItems.includes(newItem.name)) {
-            gameItems.push(newItem);
-            createdItems.push(newItem.name); // Вместо всего объекта лучше хранить только имя
+        gameItems.push(newItem);
+        createdItems.push(newItem.name);
+        addRecipeToBook(newItem);
+        clearMixingArea();
+    }
+
+    // Adding class with a shaking animation to the mixing areas, then removing it and clearing the mixing zone
+    function unsuccessfulMixing() {
+        mixingAreaEl.forEach(mixingArea => {
+            mixingArea.classList.add('shake');
             clearMixingArea();
-            render();
-            addRecipeToBook(newItem);
-            calculateProgress();
-        } else {
-            unsuccessfulMixing();
-        }
+            setTimeout(() => mixingArea.classList.remove('shake'), 200);
+        });
     }
 
     function clearMixingArea() {
         selectedItems = [];
-        mixingAreaEl.forEach(mixingArea => {
-            mixingArea.textContent = '';
-        })
+        setTimeout(() => mixingAreaEl.forEach(mixingArea => mixingArea.textContent = ''), 100);
+        calculateProgress();
+        render();
     }
 
-    function unsuccessfulMixing() {
-        mixingAreaEl.forEach(mixingArea => {
-            mixingArea.classList.add('shake');
-            setTimeout(() => {
-                clearMixingArea();
-                mixingArea.classList.remove('shake');
-            }, 300);
-        })
-    }
-
-    const recipesList = document.getElementById('recipes-list');
-
+    // Adding recipe of the new item to the recipe book
     function addRecipeToBook(recipe) {
         const recipeEl = document.createElement('div');
         recipeEl.classList.add('recipe');
-
         recipeEl.innerHTML = `
             <img src="${recipe.srcOfMixedEl1}" alt="" class="recipe-icon">
             <div class="game__mixing-symbol">+</div>
@@ -577,47 +576,28 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="game__mixing-symbol">=</div>
             <img src="${recipe.src}" alt="" class="recipe-icon">
         `;
-
         recipesList.append(recipeEl);
     }
 
-    const recipeBookButton = document.getElementById('recipe-book-button');
-    const recipeBookEl = document.getElementById('recipe-book');
-    const closeRecipeBook = document.getElementById('close-recipe-book');
-
-    recipeBookButton.addEventListener('click', () => {
-        recipeBookEl.classList.add('show');
-        recipeBookEl.classList.remove('hidden');
-    });
-
-    closeRecipeBook.addEventListener('click', () => {
-        recipeBookEl.classList.remove('show');
-        recipeBookEl.classList.add('hidden');
-    });
-
-    const progressEl = document.querySelector('.progress');
-
-    function calculateProgress() {
-        const progress = Math.ceil(((gameItems.length - NUMBER_START_ELEMENTS) / NUMBER_UNIQUE_ELEMENTS) * 100);
-        progressEl.style.width = `${progress}%`;
-    }
-
-    const resetBtn = document.querySelector('.game__reset');
-
+    // Event handlers
+    recipeBookButton.addEventListener('click', toggleRecipeBook);
+    closeRecipeBook.addEventListener('click', toggleRecipeBook);
     resetBtn.addEventListener('click', resetGame);
 
-    function resetGame() {
-        createdItems = [];
+    // Game initialization
+    render();
 
-        gameItems.splice(NUMBER_START_ELEMENTS);
-
-        setTimeout(() => {
-            clearMixingArea();
-        }, 200);
-
-        recipesList.textContent = '';
-
-        render();
-        calculateProgress();
+    // Functions for event handlers
+    // Toggle visibility of the recipe book
+    function toggleRecipeBook(){
+        recipeBookEl.classList.toggle('show');
+        recipeBookEl.classList.toggle('hidden');
     }
-})
+
+    function resetGame() {
+        gameItems.splice(NUMBER_START_ELEMENTS);
+        createdItems = [];
+        recipesList.textContent = '';
+        clearMixingArea();
+    }
+});

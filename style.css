@@ -17,6 +17,16 @@ body, html {
     cursor: url("icons/cursor.png"), pointer;
 }
 
+h1, h1 {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 button {
     cursor: url("icons/cursor.png"), pointer;
 }
@@ -50,25 +60,9 @@ button {
     margin-right: 10px;
 }
 
-.game__logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
 .game__reset {
-    width: 45px;
-    height: 45px;
-}
-
-.game__reset img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.game__title {
-    margin: 0;
+    width: 35px;
+    height: 35px;
 }
 
 .game__main {
@@ -115,12 +109,6 @@ button {
     transform: translateY(-8px);
 }
 
-.game__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
 .game__item-caption {
     margin-top: 4px;
     font-size: 12px;
@@ -151,22 +139,6 @@ button {
     width: 50%;
     height: 50%;
     object-fit: cover;
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    10%, 30%, 50%, 70%, 90% {
-        transform: translateX(-10px);
-    }
-    20%, 40%, 60%, 80% {
-        transform: translateX(10px);
-    }
-}
-
-.shake {
-    animation: shake 0.8s ease-in-out;
 }
 
 .game__mixing-symbol {
@@ -210,10 +182,6 @@ button {
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     z-index: 2000;
-}
-
-.recipe-book h2 {
-    margin-top: 0;
 }
 
 #recipes-list {
@@ -262,6 +230,11 @@ button {
     transition: width var(--transition-speed);
 }
 
+/*Modifications*/
+.shake {
+    animation: shake 0.8s ease-in-out;
+}
+
 .show {
     display: block;
 }
@@ -270,6 +243,20 @@ button {
     display: none;
 }
 
+/*Animations*/
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+/*Media queries*/
 @media (max-width: 992px) {
     .game__items {
         max-height: 168px;
