@@ -17,7 +17,7 @@ body, html {
     cursor: url("icons/cursor.png"), pointer;
 }
 
-h1, h1 {
+h1, h2, h3, h4 {
     margin: 0;
 }
 
@@ -75,7 +75,7 @@ button {
 }
 
 .game__items {
-    max-width: 936px;
+    max-width: 1345px;
     max-height: 265px;
     display: flex;
     flex-wrap: wrap;
@@ -184,14 +184,43 @@ button {
     z-index: 2000;
 }
 
+.recipe-book-title {
+    margin-bottom: 5px;
+}
+
 #recipes-list {
     max-height: 400px;
     overflow-y: auto;
 }
 
+.recipe-wrapper {
+    margin: 20px;
+}
+
+.category-title {
+    color: #F0F0F0;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.subcategory-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #C0C0C0;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
 .recipe {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -202,6 +231,19 @@ button {
     padding: 8px;
     border-radius: 8px;
     background: var(--element-background);
+}
+
+.recipe-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+.game__mixing-symbol {
+    font-size: 24px;
+    color: #E0E0E0;
+    display: inline-block;
+    margin: 0 5px;
 }
 
 #close-recipe-book {
