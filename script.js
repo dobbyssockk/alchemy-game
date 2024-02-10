@@ -451,10 +451,10 @@ document.addEventListener('DOMContentLoaded', () => {
             item1: 'human',
             item2: 'brick',
             result: {
-                name: 'Builder',
+                name: 'builder',
                 title: 'Icon by Eucalyp - Flaticon',
                 src: 'icons/builder.png',
-                alt: 'Builder',
+                alt: 'builder',
                 srcOfMixedEl1: 'icons/human.png',
                 srcOfMixedEl2: 'icons/brick.png'
             }
