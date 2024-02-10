@@ -28,7 +28,7 @@ img {
 }
 
 button {
-    cursor: url("icons/cursor.png"), pointer;
+    cursor: pointer;
 }
 
 .game {
@@ -63,6 +63,7 @@ button {
 .game__reset {
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 
 .game__main {
@@ -102,6 +103,7 @@ button {
     transition: background var(--transition-speed), transform var(--transition-speed);
     user-select: none;
     position: relative;
+    cursor: pointer;
 }
 
 .game__item:hover {
