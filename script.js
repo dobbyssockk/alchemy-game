@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM events
     const gameItemsContainerEl = document.querySelector('.game__items');
     const mixingAreaEl = document.querySelectorAll('.game__mixing-area');
-    const recipesList = document.getElementById('recipes-list');
+    const recipeWrapper = document.querySelector('.recipe-wrapper');
     const recipeBookButton = document.getElementById('recipe-book-button');
     const recipeBookEl = document.getElementById('recipe-book');
     const closeRecipeBook = document.getElementById('close-recipe-book');
@@ -720,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categorySection.classList.add('category');
             categorySection.setAttribute('data-category', category);
             categorySection.innerHTML = `<h2 class="category-title">${category}</h2>`;
-            document.querySelector('.recipe-wrapper').appendChild(categorySection);
+            recipeWrapper.appendChild(categorySection);
         }
 
         // Then, find or create the subcategory section within the category
@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetGame() {
         gameItems.splice(NUMBER_START_ELEMENTS);
-        recipesList.textContent = '';
+        recipeWrapper.textContent = '';
         localStorage.clear();
         clearMixingArea();
     }
