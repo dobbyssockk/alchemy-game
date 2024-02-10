@@ -73,6 +73,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         {
+            item1: 'water',
+            item2: 'water',
+            result: {
+                name: 'sea',
+                title: 'Icon by Freepik - Flaticon',
+                src: 'icons/sea.png',
+                alt: 'sea',
+                category: 'natural elements',
+                subcategory: 'water',
+                srcOfMixedEl1: 'icons/water.png',
+                srcOfMixedEl2: 'icons/water.png'
+            }
+        },
+        {
+            item1: 'sea',
+            item2: 'sea',
+            result: {
+                name: 'ocean',
+                title: 'Icon by Freepik - Flaticon',
+                src: 'icons/ocean.png',
+                alt: 'ocean',
+                category: 'natural elements',
+                subcategory: 'water',
+                srcOfMixedEl1: 'icons/sea.png',
+                srcOfMixedEl2: 'icons/sea.png'
+            }
+        },
+        {
             item1: 'earth',
             item2: 'fire',
             result: {
@@ -525,7 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let createdItems = [];
     // Total possible elements for each subcategory
     const totalElementsPerSubcategory = {
-        'water': 4,
+        'water': 6,
         'earth': 5,
         'air': 5,
         'fire': 3,
@@ -542,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gameItemsString) {
         const gameItemsParsed = JSON.parse(gameItemsString);
 
-        // Fixing previous bag with builder
+        // Fixing previous bug with builder
         const gameItemsFilteredBuilder = gameItemsParsed.filter(item =>  item.name !== 'Builder');
 
         // Adding updated structure of the game item objects
