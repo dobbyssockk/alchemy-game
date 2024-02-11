@@ -618,6 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const numberOfUniqueEl = mixingCombinations.length;
     let selectedItems = [];
     const clickSound = new Audio('click.mp3');
+    const successSound = new Audio('success.mp3');
 
     // Functions
     function capitalize(str) {
@@ -712,6 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adding the new created item, clearing the mixing zone, calculating progress and rendering with the new item
     function successfulMixing(newItem) {
+        successSound.play();
         gameItems.push(newItem);
         createdItems.push(newItem);
 
