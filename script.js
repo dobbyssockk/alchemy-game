@@ -734,6 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function clearMixingArea() {
         selectedItems = [];
+        createdItems = [];
         setTimeout(() => mixingAreaEl.forEach(mixingArea => mixingArea.textContent = ''), 100);
         calculateProgress();
         render();
