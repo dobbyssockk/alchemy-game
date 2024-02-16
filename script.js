@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const recipeWrapper = document.querySelector('.recipe-wrapper');
     const recipeBookButton = document.getElementById('recipe-book-button');
     const recipeBookEl = document.getElementById('recipe-book');
+    const recipeBookTitle = document.querySelector('.recipe-book-title');
     const closeRecipeBook = document.getElementById('close-recipe-book');
     const progressEl = document.querySelector('.progress');
     const resetBtn = document.querySelector('.game__reset');
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Variable declarations and initialization
     const NUMBER_START_ELEMENTS = 4;
 
-    let itemsCountBySubcategory = [];
+    let itemsCountBySubcategory = {};
     // Total possible elements for each subcategory
     const totalElementsPerSubcategory = {
         'water': 7,
@@ -181,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function successfulMixing(newItem) {
         successSound.play();
         gameItems.push(newItem);
-        itemsCountBySubcategory.push(newItem);
 
         localStorage.setItem('gameItems', JSON.stringify(gameItems));
 
@@ -203,6 +203,19 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => mixingAreaEl.forEach(mixingArea => mixingArea.textContent = ''), 100);
         calculateProgress();
         render();
+    }
+
+    function updateRecipeBookTitle() {
+        const itemsGlobalCount = Object.values(itemsCountBySubcategory).reduce((sum, item) => sum + item, 0);
+
+        let countDisplay = recipeBookTitle.querySelector('.count-display');
+        if (!countDisplay) {
+            countDisplay = document.createElement('span');
+            countDisplay.classList.add('count-display');
+            recipeBookTitle.appendChild(countDisplay);
+        }
+
+        countDisplay.textContent = ` (${itemsGlobalCount}/${mixingCombinations.length})`;
     }
 
     function addRecipeToBook(recipe) {
@@ -259,6 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Append the new recipe element to the subcategory section
         subCategorySection.appendChild(recipeEl);
+
+        // Update the Recipe Book title with the global count each time a new recipe is added
+        updateRecipeBookTitle();
     }
 
     // Event handlers
@@ -268,6 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Game initialization
     render();
+    updateRecipeBookTitle();
     calculateProgress();
 
     // Functions for event handlers
@@ -282,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameItems.splice(NUMBER_START_ELEMENTS);
         recipeWrapper.textContent = '';
         localStorage.clear();
+        updateRecipeBookTitle();
         clearMixingArea();
     }
 });
