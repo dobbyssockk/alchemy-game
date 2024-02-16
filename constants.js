@@ -86,6 +86,20 @@ export const mixingCombinations = [
         }
     },
     {
+        item1: 'sea',
+        item2: 'sand',
+        result: {
+            name: 'beach',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/beach.png',
+            alt: 'beach',
+            category: 'natural elements',
+            subcategory: 'water',
+            srcOfMixedEl1: 'icons/sea.png',
+            srcOfMixedEl2: 'icons/sand.png'
+        }
+    },
+    {
         item1: 'earth',
         item2: 'fire',
         result: {
@@ -199,20 +213,6 @@ export const mixingCombinations = [
     },
     {
         item1: 'air',
-        item2: 'energy',
-        result: {
-            name: 'storm',
-            title: 'Icon by max.icons - Flaticon',
-            src: 'icons/storm.png',
-            alt: 'storm',
-            category: 'natural elements',
-            subcategory: 'air',
-            srcOfMixedEl1: 'icons/air.png',
-            srcOfMixedEl2: 'icons/energy.png'
-        }
-    },
-    {
-        item1: 'air',
         item2: 'cloud',
         result: {
             name: 'sky',
@@ -265,6 +265,20 @@ export const mixingCombinations = [
             subcategory: 'fire',
             srcOfMixedEl1: 'icons/fire.png',
             srcOfMixedEl2: 'icons/clay.png'
+        }
+    },
+    {
+        item1: 'fire',
+        item2: 'wood',
+        result: {
+            name: 'coal',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/coal.png',
+            alt: 'coal',
+            category: 'natural elements',
+            subcategory: 'fire',
+            srcOfMixedEl1: 'icons/fire.png',
+            srcOfMixedEl2: 'icons/wood.png'
         }
     },
     {
@@ -339,6 +353,20 @@ export const mixingCombinations = [
     },
     {
         item1: 'beast',
+        item2: 'sky',
+        result: {
+            name: 'bird',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/bird.png',
+            alt: 'bird',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/beast.png',
+            srcOfMixedEl2: 'icons/sky.png'
+        }
+    },
+    {
+        item1: 'beast',
         item2: 'tree',
         result: {
             name: 'monkey',
@@ -362,6 +390,34 @@ export const mixingCombinations = [
             category: 'living organisms',
             subcategory: 'development of life',
             srcOfMixedEl1: 'icons/monkey.png',
+            srcOfMixedEl2: 'icons/time.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'human',
+        result: {
+            name: 'child',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/child.png',
+            alt: 'child',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/human.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'time',
+        result: {
+            name: 'oldman',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/oldman.png',
+            alt: 'oldman',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/human.png',
             srcOfMixedEl2: 'icons/time.png'
         }
     },
@@ -394,6 +450,20 @@ export const mixingCombinations = [
         }
     },
     {
+        item1: 'human',
+        item2: 'tree',
+        result: {
+            name: 'wood',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/wood.png',
+            alt: 'wood',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/tree.png'
+        }
+    },
+    {
         item1: 'builder',
         item2: 'brick',
         result: {
@@ -405,6 +475,34 @@ export const mixingCombinations = [
             subcategory: 'products of activity',
             srcOfMixedEl1: 'icons/builder.png',
             srcOfMixedEl2: 'icons/brick.png'
+        }
+    },
+    {
+        item1: 'building',
+        item2: 'building',
+        result: {
+            name: 'city',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/city.png',
+            alt: 'city',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/city.png',
+            srcOfMixedEl2: 'icons/city.png'
+        }
+    },
+    {
+        item1: 'building',
+        item2: 'sky',
+        result: {
+            name: 'skyscraper',
+            title: 'Icon by itim2101 - Flaticon',
+            src: 'icons/skyscraper.png',
+            alt: 'skyscraper',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/building.png',
+            srcOfMixedEl2: 'icons/sky.png'
         }
     },
     {
@@ -492,8 +590,78 @@ export const mixingCombinations = [
         }
     },
     {
-        item1: 'sand',
-        item2: 'glass',
+        item1: 'cloud',
+        item2: 'water',
+        result: {
+            name: 'rain',
+            title: 'Icon by tulpahn - Flaticon',
+            src: 'icons/rain.png',
+            alt: 'rain',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/cloud.png',
+            srcOfMixedEl2: 'icons/water.png'
+        }
+    },
+    {
+        item1: 'rain',
+        item2: 'sun',
+        result: {
+            name: 'rainbow',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/rainbow.png',
+            alt: 'rainbow',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/rain.png',
+            srcOfMixedEl2: 'icons/sun.png'
+        }
+    },
+    {
+        item1: 'air',
+        item2: 'energy',
+        result: {
+            name: 'storm',
+            title: 'Icon by max.icons - Flaticon',
+            src: 'icons/storm.png',
+            alt: 'storm',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/air.png',
+            srcOfMixedEl2: 'icons/energy.png'
+        }
+    },
+    {
+        item1: 'energy',
+        item2: 'sea',
+        result: {
+            name: 'tsunami',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/tsunami.png',
+            alt: 'tsunami',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/energy.png',
+            srcOfMixedEl2: 'icons/sea.png'
+        }
+    },
+    {
+        item1: 'steam',
+        item2: 'earth',
+        result: {
+            name: 'geyser',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/geyser.png',
+            alt: 'geyser',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/steam.png',
+            srcOfMixedEl2: 'icons/earth.png'
+        }
+    },
+    {
+        item1: 'glass',
+        item2: 'sand',
         result: {
             name: 'time',
             title: 'Icon by ultimatearm - Flaticon',
@@ -501,8 +669,8 @@ export const mixingCombinations = [
             alt: 'time',
             category: 'natural phenomena and abstractions',
             subcategory: 'abstractions',
-            srcOfMixedEl1: 'icons/sand.png',
-            srcOfMixedEl2: 'icons/glass.png'
+            srcOfMixedEl1: 'icons/glass.png',
+            srcOfMixedEl2: 'icons/sand.png'
         }
     },
     {

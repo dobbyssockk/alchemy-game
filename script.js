@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Variable declarations and initialization
     const NUMBER_START_ELEMENTS = 4;
 
-    let createdItems = [];
+    let itemsCountBySubcategory = [];
     // Total possible elements for each subcategory
     const totalElementsPerSubcategory = {
-        'water': 6,
+        'water': 7,
         'earth': 5,
-        'air': 5,
-        'fire': 3,
+        'air': 4,
+        'fire': 4,
         'foundations of life': 2,
-        'development of life': 5,
+        'development of life': 8,
         'professions': 2,
-        'products of activity': 4,
-        'phenomena': 3,
+        'products of activity': 7,
+        'phenomena': 8,
         'abstractions': 3,
     };
 
@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Adding updated structure of the game item objects
         gameItems = gameItemsFilteredBuilder.map(item => {
-            if (item.category || item.subcategory) return item;
             const combination = mixingCombinations.find(combination => {
                 return item.name === combination.result.name;
             });
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function successfulMixing(newItem) {
         successSound.play();
         gameItems.push(newItem);
-        createdItems.push(newItem);
+        itemsCountBySubcategory.push(newItem);
 
         localStorage.setItem('gameItems', JSON.stringify(gameItems));
 
@@ -242,10 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         // Increment the count of created elements for this subcategory
-        if (!createdItems[recipe.subcategory]) {
-            createdItems[recipe.subcategory] = 0;
+        if (!itemsCountBySubcategory[recipe.subcategory]) {
+            itemsCountBySubcategory[recipe.subcategory] = 0;
         }
-        createdItems[recipe.subcategory]++;
+        itemsCountBySubcategory[recipe.subcategory]++;
 
         // Find or create the count display next to the subcategory title
         let countDisplay = subCategorySection.querySelector('.count-display');
@@ -256,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update the count display
-        countDisplay.textContent = ` (${createdItems[recipe.subcategory]}/${totalElementsPerSubcategory[recipe.subcategory]})`;
+        countDisplay.textContent = ` (${itemsCountBySubcategory[recipe.subcategory]}/${totalElementsPerSubcategory[recipe.subcategory]})`;
 
         // Append the new recipe element to the subcategory section
         subCategorySection.appendChild(recipeEl);
@@ -279,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetGame() {
-        createdItems = [];
+        itemsCountBySubcategory = [];
         gameItems.splice(NUMBER_START_ELEMENTS);
         recipeWrapper.textContent = '';
         localStorage.clear();
