@@ -22,15 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Total possible elements for each subcategory
     const totalElementsPerSubcategory = {
         'water': 7,
-        'earth': 5,
+        'earth': 6,
         'air': 4,
-        'fire': 4,
+        'fire': 5,
         'foundations of life': 2,
-        'development of life': 8,
-        'professions': 2,
-        'products of activity': 7,
-        'phenomena': 8,
-        'abstractions': 3,
+        'development of life': 13,
+        'professions': 8,
+        'products of activity': 16,
+        'phenomena': 15,
+        'abstractions': 7,
     };
 
     const gameItemsString = localStorage.getItem('gameItems');

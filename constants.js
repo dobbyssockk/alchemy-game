@@ -170,6 +170,20 @@ export const mixingCombinations = [
         }
     },
     {
+        item1: 'earth',
+        item2: 'earth',
+        result: {
+            name: 'field',
+            title: 'Icon by Vectoricons - Flaticon',
+            src: 'icons/field.png',
+            alt: 'field',
+            category: 'natural elements',
+            subcategory: 'earth',
+            srcOfMixedEl1: 'icons/earth.png',
+            srcOfMixedEl2: 'icons/earth.png'
+        }
+    },
+    {
         item1: 'air',
         item2: 'fire',
         result: {
@@ -282,6 +296,20 @@ export const mixingCombinations = [
         }
     },
     {
+        item1: 'fire',
+        item2: 'coal',
+        result: {
+            name: 'bonfire',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/bonfire.png',
+            alt: 'bonfire',
+            category: 'natural elements',
+            subcategory: 'fire',
+            srcOfMixedEl1: 'icons/fire.png',
+            srcOfMixedEl2: 'icons/coal.png'
+        }
+    },
+    {
         item1: 'water',
         item2: 'energy',
         result: {
@@ -296,8 +324,8 @@ export const mixingCombinations = [
         }
     },
     {
-        item1: 'earth',
-        item2: 'life',
+        item1: 'life',
+        item2: 'earth',
         result: {
             name: 'plant',
             title: 'Icon by Freepik - Flaticon',
@@ -305,8 +333,8 @@ export const mixingCombinations = [
             alt: 'plant',
             category: 'living organisms',
             subcategory: 'foundations of life',
-            srcOfMixedEl1: 'icons/earth.png',
-            srcOfMixedEl2: 'icons/life.png'
+            srcOfMixedEl1: 'icons/life.png',
+            srcOfMixedEl2: 'icons/earth.png'
         }
     },
     {
@@ -422,6 +450,76 @@ export const mixingCombinations = [
         }
     },
     {
+        item1: 'child',
+        item2: 'time',
+        result: {
+            name: 'teenager',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/teenager.png',
+            alt: 'teenager',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/child.png',
+            srcOfMixedEl2: 'icons/time.png'
+        }
+    },
+    {
+        item1: 'beast',
+        item2: 'ice',
+        result: {
+            name: 'penguin',
+            title: 'Icon by Mihimihi - Flaticon',
+            src: 'icons/penguin.png',
+            alt: 'penguin',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/beast.png',
+            srcOfMixedEl2: 'icons/ice.png'
+        }
+    },
+    {
+        item1: 'beast',
+        item2: 'energy',
+        result: {
+            name: 'pikachu',
+            title: 'Icon by Roundicons Freebies - Flaticon',
+            src: 'icons/pikachu.png',
+            alt: 'pikachu',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/beast.png',
+            srcOfMixedEl2: 'icons/energy.png'
+        }
+    },
+    {
+        item1: 'beast',
+        item2: 'cheese',
+        result: {
+            name: 'mouse',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/mouse.png',
+            alt: 'mouse',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/beast.png',
+            srcOfMixedEl2: 'icons/cheese.png'
+        }
+    },
+    {
+        item1: 'life',
+        item2: 'ocean',
+        result: {
+            name: 'coral',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/coral.png',
+            alt: 'coral',
+            category: 'living organisms',
+            subcategory: 'development of life',
+            srcOfMixedEl1: 'icons/life.png',
+            srcOfMixedEl2: 'icons/ocean.png'
+        }
+    },
+    {
         item1: 'human',
         item2: 'plant',
         result: {
@@ -447,6 +545,90 @@ export const mixingCombinations = [
             subcategory: 'professions',
             srcOfMixedEl1: 'icons/human.png',
             srcOfMixedEl2: 'icons/brick.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'steam',
+        result: {
+            name: 'gamer',
+            title: 'Icon by dDara - Flaticon',
+            src: 'icons/gamer.png',
+            alt: 'gamer',
+            category: 'human activities',
+            subcategory: 'professions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/steam.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'coal',
+        result: {
+            name: 'miner',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/miner.png',
+            alt: 'miner',
+            category: 'human activities',
+            subcategory: 'professions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/coal.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'ocean',
+        result: {
+            name: 'fisherman',
+            title: 'Icon by Eucalyp - Flaticon',
+            src: 'icons/fisherman.png',
+            alt: 'fisherman',
+            category: 'human activities',
+            subcategory: 'professions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/ocean.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'metal',
+        result: {
+            name: 'blacksmith',
+            title: 'Icon by Smashicons - Flaticon',
+            src: 'icons/blacksmith.png',
+            alt: 'blacksmith',
+            category: 'human activities',
+            subcategory: 'professions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/metal.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'info',
+        result: {
+            name: 'scientist',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/scientist.png',
+            alt: 'scientist',
+            category: 'human activities',
+            subcategory: 'professions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/info.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'space',
+        result: {
+            name: 'astronomer',
+            title: 'Icon by ultimatearm - Flaticon',
+            src: 'icons/astronomer.png',
+            alt: 'astronomer',
+            category: 'human activities',
+            subcategory: 'professions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/space.png'
         }
     },
     {
@@ -548,6 +730,132 @@ export const mixingCombinations = [
         }
     },
     {
+        item1: 'coal',
+        item2: 'coal',
+        result: {
+            name: 'mine',
+            title: 'Icon by Iconic Panda - Flaticon',
+            src: 'icons/mine.png',
+            alt: 'mine',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/coal.png',
+            srcOfMixedEl2: 'icons/coal.png'
+        }
+    },
+    {
+        item1: 'glass',
+        item2: 'time',
+        result: {
+            name: 'screen',
+            title: 'Icon by xnimrodx - Flaticon',
+            src: 'icons/screen.png',
+            alt: 'screen',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/glass.png',
+            srcOfMixedEl2: 'icons/time.png'
+        }
+    },
+    {
+        item1: 'miner',
+        item2: 'mine',
+        result: {
+            name: 'gold',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/gold.png',
+            alt: 'gold',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/miner.png',
+            srcOfMixedEl2: 'icons/mine.png'
+        }
+    },
+    {
+        item1: 'bird',
+        item2: 'metal',
+        result: {
+            name: 'airplane',
+            title: 'Icon by Pause08 - Flaticon',
+            src: 'icons/airplane.png',
+            alt: 'airplane',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/bird.png',
+            srcOfMixedEl2: 'icons/metal.png'
+        }
+    },
+    {
+        item1: 'ice',
+        item2: 'milk',
+        result: {
+            name: 'ice cream',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/ice-cream.png',
+            alt: 'ice cream',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/ice.png',
+            srcOfMixedEl2: 'icons/milk.png'
+        }
+    },
+    {
+        item1: 'glass',
+        item2: 'plant',
+        result: {
+            name: 'greenhouse',
+            title: 'Icon by ultimatearm - Flaticon',
+            src: 'icons/greenhouse.png',
+            alt: 'greenhouse',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/glass.png',
+            srcOfMixedEl2: 'icons/plant.png'
+        }
+    },
+    {
+        item1: 'sun',
+        item2: 'metal',
+        result: {
+            name: 'solar panel',
+            title: 'Icon by small.smiles - Flaticon',
+            src: 'icons/solar-panel.png',
+            alt: 'solar panel',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/sun.png',
+            srcOfMixedEl2: 'icons/metal.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'wood',
+        result: {
+            name: 'paper',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/paper.png',
+            alt: 'paper',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/wood.png'
+        }
+    },
+    {
+        item1: 'paper',
+        item2: 'info',
+        result: {
+            name: 'book',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/book.png',
+            alt: 'book',
+            category: 'human activities',
+            subcategory: 'products of activity',
+            srcOfMixedEl1: 'icons/paper.png',
+            srcOfMixedEl2: 'icons/info.png'
+        }
+    },
+    {
         item1: 'cloud',
         item2: 'energy',
         result: {
@@ -618,8 +926,8 @@ export const mixingCombinations = [
         }
     },
     {
-        item1: 'air',
-        item2: 'energy',
+        item1: 'energy',
+        item2: 'air',
         result: {
             name: 'storm',
             title: 'Icon by max.icons - Flaticon',
@@ -627,8 +935,8 @@ export const mixingCombinations = [
             alt: 'storm',
             category: 'natural phenomena and abstractions',
             subcategory: 'phenomena',
-            srcOfMixedEl1: 'icons/air.png',
-            srcOfMixedEl2: 'icons/energy.png'
+            srcOfMixedEl1: 'icons/energy.png',
+            srcOfMixedEl2: 'icons/air.png'
         }
     },
     {
@@ -657,6 +965,104 @@ export const mixingCombinations = [
             subcategory: 'phenomena',
             srcOfMixedEl1: 'icons/steam.png',
             srcOfMixedEl2: 'icons/earth.png'
+        }
+    },
+    {
+        item1: 'sun',
+        item2: 'energy',
+        result: {
+            name: 'light',
+            title: 'Icon by Flat Icons - Flaticon',
+            src: 'icons/light.png',
+            alt: 'light',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/sun.png',
+            srcOfMixedEl2: 'icons/energy.png'
+        }
+    },
+    {
+        item1: 'sun',
+        item2: 'earth',
+        result: {
+            name: 'planet Earth',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/planet.png',
+            alt: 'planet Earth',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/sun.png',
+            srcOfMixedEl2: 'icons/earth.png'
+        }
+    },
+    {
+        item1: 'sun',
+        item2: 'planet Earth',
+        result: {
+            name: 'solar system',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/solar-system.png',
+            alt: 'solar system',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/sun.png',
+            srcOfMixedEl2: 'icons/planet.png'
+        }
+    },
+    {
+        item1: 'solar system',
+        item2: 'solar system',
+        result: {
+            name: 'space',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/space.png',
+            alt: 'space',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/solar-system.png',
+            srcOfMixedEl2: 'icons/solar-system.png'
+        }
+    },
+    {
+        item1: 'space',
+        item2: 'death',
+        result: {
+            name: 'black hole',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/black-hole.png',
+            alt: 'black hole',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/space.png',
+            srcOfMixedEl2: 'icons/death.png'
+        }
+    },
+    {
+        item1: 'sun',
+        item2: 'dark',
+        result: {
+            name: 'eclipse',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/eclipse.png',
+            alt: 'eclipse',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/sun.png',
+            srcOfMixedEl2: 'icons/dark.png'
+        }
+    },
+    {
+        item1: 'sand',
+        item2: 'water',
+        result: {
+            name: 'oasis',
+            title: 'Icon by Flat Icons - Flaticon',
+            src: 'icons/oasis.png',
+            alt: 'oasis',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'phenomena',
+            srcOfMixedEl1: 'icons/sand.png',
+            srcOfMixedEl2: 'icons/water.png'
         }
     },
     {
@@ -699,6 +1105,62 @@ export const mixingCombinations = [
             subcategory: 'abstractions',
             srcOfMixedEl1: 'icons/sky.png',
             srcOfMixedEl2: 'icons/cheese.png'
+        }
+    },
+    {
+        item1: 'oldman',
+        item2: 'time',
+        result: {
+            name: 'death',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/death.png',
+            alt: 'death',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'abstractions',
+            srcOfMixedEl1: 'icons/oldman.png',
+            srcOfMixedEl2: 'icons/time.png'
+        }
+    },
+    {
+        item1: 'death',
+        item2: 'beast',
+        result: {
+            name: 'corpse',
+            title: 'Icon by Freepik - Flaticon',
+            src: 'icons/corpse.png',
+            alt: 'corpse',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'abstractions',
+            srcOfMixedEl1: 'icons/death.png',
+            srcOfMixedEl2: 'icons/beast.png'
+        }
+    },
+    {
+        item1: 'light',
+        item2: 'black hole',
+        result: {
+            name: 'dark',
+            title: 'Icon by IconMarketPK - Flaticon',
+            src: 'icons/dark.png',
+            alt: 'dark',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'abstractions',
+            srcOfMixedEl1: 'icons/light.png',
+            srcOfMixedEl2: 'icons/black-hole.png'
+        }
+    },
+    {
+        item1: 'human',
+        item2: 'screen',
+        result: {
+            name: 'info',
+            title: 'Icon by juicy_fish - Flaticon',
+            src: 'icons/info.png',
+            alt: 'info',
+            category: 'natural phenomena and abstractions',
+            subcategory: 'abstractions',
+            srcOfMixedEl1: 'icons/human.png',
+            srcOfMixedEl2: 'icons/screen.png'
         }
     },
 ];
