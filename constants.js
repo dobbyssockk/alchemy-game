@@ -669,8 +669,8 @@ export const mixingCombinations = [
             alt: 'city',
             category: 'human activities',
             subcategory: 'products of activity',
-            srcOfMixedEl1: 'icons/city.png',
-            srcOfMixedEl2: 'icons/city.png'
+            srcOfMixedEl1: 'icons/building.png',
+            srcOfMixedEl2: 'icons/building.png'
         }
     },
     {
